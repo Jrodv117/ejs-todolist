@@ -65,6 +65,23 @@ app.post('/', (req, res) => {
 
 });
 
+app.post('/delete', (req, res) => {
+	 const box = req.body.deleteItem
+
+	 console.log(box)
+	 if (box !== undefined ){
+		Item.findByIdAndRemove(box, (err) =>{
+			if (!err){
+				res.redirect('/')
+			}else{
+				console.log('error')
+			}
+		})
+	 }else{
+
+	 }
+})
+
 app.get('/work', (req, res) => {
 	res.render('list', { listTitle: 'Work To-Do List', newListItems: workItems });
 });
