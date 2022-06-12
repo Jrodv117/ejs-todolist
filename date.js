@@ -4,4 +4,4 @@ const getDate = () => {
 	return today.toLocaleDateString('en-us', options);;
 }
 
-exports = getDate
+module.exports = getDate
