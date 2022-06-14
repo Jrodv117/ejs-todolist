@@ -122,3 +122,11 @@ app.post('/delete', (req, res) => {
 		);
 	}
 });
+
+app.listen(port, () => {
+	console.log('run server, run');
+});
+
+app.listen(3000, () => {
+	console.log('run server, run');
+});
