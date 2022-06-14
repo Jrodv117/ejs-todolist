@@ -11,7 +11,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost:27017/todolistDB');
+mongoose.connect(
+	'mongodb+srv://jrodr113:lovesosa4@cluster0.vnvfl.mongodb.net/?retryWrites=true&w=majority'
+);
 
 const itemsSchema = {
 	name: String,
@@ -105,7 +107,6 @@ app.post('/delete', (req, res) => {
 	if (listName === 'Today') {
 		Item.findByIdAndRemove(box, function (err) {
 			if (!err) {
-				console.log('Successfully deleted checked item.');
 				res.redirect('/');
 			}
 		});
@@ -120,7 +121,4 @@ app.post('/delete', (req, res) => {
 			}
 		);
 	}
-});
-app.listen(3000, () => {
-	console.log('run server, run');
 });
